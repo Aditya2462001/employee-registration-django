@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+    <title>Employee Details</title>
+    <style>
+        a{
+            text-decoration: none;
+            color: white;
+            text-transform: uppercase;
+        }
+        a:hover
+        {
+            color: white;
+        }
+    </style>
+  </head>
+  <body>
+    {% if employee %}
+   <div class="container d-flex flex-column mb-3 justify-content-center">
+   <h1 class="text-center text-uppercase mb-5 mt-5">Employee Details</h1>
+    <div class="card col-12 m-auto" style="max-width: 1000px;">
+        <div class="row g-5">
+          <div class="col-md-5" style="height:450px;">
+            <img src="{{employee.image.url}}" alt="employee photo" style="width: 100%;height: 100%;">
+          </div>
+          <div class="col-md-7">
+            <div class="card-body">
+              <h5 class="card-title text-center">Employee Card</h5>
+              <p class="card-text"><strong>Name : </strong>{{employee.fname}} {{employee.mname}}  {{employee.lname}}</p>
+              <p class="card-text"><strong>Email : </strong>{{employee.email}}</p>
+              <p class="card-text"><strong>Age : </strong>{{employee.age}}</p>
+              <p class="card-text"><strong>Mobile Number : </strong>{{employee.number}}</p>
+              <p class="card-text"><strong>Position : </strong>{{employee.position}}</p>
+              <p class="card-text"><strong>Address : </strong>{{employee.address}}</p>
+              <p class="card-text"><strong>Username : </strong>{{employee.user}}</p>
+              <p class="card-text"><small class="text-muted">Welcome to employee details app</small></p>
+              <div class="row grid gap-3 mx-auto">
+                <button class="mx-5 col-4 btn btn-danger" type="button"><a href="{% url 'logout' %}">Logout</a> </button>
+                <button class="col-4 btn btn-success" type="button"> <a href="{% url 'edit' %}">Edit Profile</a> </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+   </div>
+      {% endif %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
+  </body>
+</html>
